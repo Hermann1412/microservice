@@ -66,4 +66,4 @@ def order_completed(order: Order):
   time.sleep(5)  # simulate a long process
   order.status = 'completed'
   order.save()
-  redis.xadd('order_completed', order.dict(), '*')
+  redis.xadd('order_completed', order.model_dump())
